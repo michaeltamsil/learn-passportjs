@@ -8,7 +8,9 @@ passport.use(
         clientID: keys.google.clientID,
         clientSecret: keys.google.clientSecret
         // options for the google strat
-    },() => {
+    },(accessToken, refreshToken, profile, done) => {
+        console.log('passport callback function fired')
+        console.log(profile)
         // passport callback function
     })
 )
