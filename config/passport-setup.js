@@ -17,7 +17,7 @@ passport.use(
             if(currentUser){
                 // already have the user
             }
-        })
+        }) 
 
         new User({
             username: profile.displayName,
