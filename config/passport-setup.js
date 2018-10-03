@@ -16,15 +16,19 @@ passport.use(
         }).then((currentUser) => {
             if(currentUser){
                 // already have the user
+                console.log('user is: ', currentUser)
+            } else {
+                // if not, create user in our db
+                new User({
+                    username: profile.displayName,
+                    googleId: profile.id
+                }).save().then( newUser => {
+                    console.log(`new user created ${newUser}`)
+                })
+                // passport callback function
             }
         }) 
 
-        new User({
-            username: profile.displayName,
-            googleId: profile.id
-        }).save().then( newUser => {
-            console.log(`new user created ${newUser}`)
-        })
-        // passport callback function
+
     })
 )
